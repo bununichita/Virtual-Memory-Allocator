@@ -42,14 +42,26 @@ typedef struct {
 } arena_t;
 
 list_t* dll_create(unsigned int data_size);
-node_t* dll_get_nth_node(list_t* list, unsigned int n);
 void dll_add_nth_node(list_t* list, unsigned int n, const void* data);
-int find_block_poz(list_t* list, uint64_t new_poz);
 node_t* dll_remove_nth_node(list_t* list, unsigned int n);
+unsigned int ll_get_size(list_t* list);
+void dll_free(list_t** list);
+
+
 int dll_intersectie_block(arena_t* arena, const uint64_t address, const uint64_t size);
+node_t* merge_left(arena_t* arena, const uint64_t address, const uint64_t size);
+node_t* merge_right(arena_t* arena,node_t* left, const uint64_t address, const uint64_t size);
+
+
 
 arena_t *alloc_arena(const uint64_t size);
 void dealloc_arena(arena_t *arena);
+
+void alloc_block_simple(arena_t *arena, const uint64_t address, const uint64_t size);
+void alloc_block_left(arena_t *arena, const uint64_t address, const uint64_t size, node_t* left);
+void alloc_block_right(arena_t *arena, const uint64_t address, const uint64_t size, node_t* right);
+void alloc_block_left_right(arena_t *arena, const uint64_t address, const uint64_t size, node_t* left, node_t* right);
+
 
 void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size);
 void free_block(arena_t *arena, const uint64_t address);

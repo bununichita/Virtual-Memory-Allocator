@@ -41,6 +41,9 @@ int main() {
 		if(strncmp(command, "PMAP", 4) == 0){
 			pmap(arena);
 		}
+		if(strncmp(command, "MPROTECT", 8) == 0){
+			mprotect(arena, address, )
+		}
 	}
 	return 0;
 }

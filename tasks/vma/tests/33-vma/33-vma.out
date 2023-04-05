@@ -1,12 +1,10 @@
-Total memory: C8 bytes
-Free memory: 100 bytes
+Total memory: 0xC8 bytes
+Free memory: 0x64 bytes
 Number of allocated blocks: 1
 Number of allocated miniblocks: 1
 
 Block 1 begin
-Zone: A - 6E
-Miniblock 1:	A	-	6E	| RW-
+Zone: 0xA - 0x6E
+Miniblock 1:		0xA		-		0x6E		| RW-
 Block 1 end
 DEALLOC_AREN
-1
-10

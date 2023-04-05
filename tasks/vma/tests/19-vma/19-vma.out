@@ -1,59 +1,54 @@
-Total memory: 14 bytes
-Free memory: 16 bytes
+Total memory: 0x14 bytes
+Free memory: 0x10 bytes
 Number of allocated blocks: 1
 Number of allocated miniblocks: 4
 
 Block 1 begin
-Zone: 3 - 7
-Miniblock 1:	3	-	4	| RW-
-Miniblock 2:	4	-	5	| RW-
-Miniblock 3:	5	-	6	| RW-
-Miniblock 4:	6	-	7	| RW-
+Zone: 0x3 - 0x7
+Miniblock 1:		0x3		-		0x4		| RW-
+Miniblock 2:		0x4		-		0x5		| RW-
+Miniblock 3:		0x5		-		0x6		| RW-
+Miniblock 4:		0x6		-		0x7		| RW-
 Block 1 end
-Total memory: 14 bytes
-Free memory: 17 bytes
+Total memory: 0x14 bytes
+Free memory: 0x11 bytes
 Number of allocated blocks: 2
 Number of allocated miniblocks: 3
 
 Block 1 begin
-Zone: 3 - 4
-Miniblock 1:	3	-	4	| RW-
+Zone: 0x3 - 0x4
+Miniblock 1:		0x3		-		0x4		| RW-
 Block 1 end
 
 Block 2 begin
-Zone: 5 - 7
-Miniblock 1:	5	-	6	| RW-
-Miniblock 2:	6	-	7	| RW-
+Zone: 0x5 - 0x7
+Miniblock 1:		0x5		-		0x6		| RW-
+Miniblock 2:		0x6		-		0x7		| RW-
 Block 2 end
-Total memory: 14 bytes
-Free memory: 16 bytes
+Total memory: 0x14 bytes
+Free memory: 0x10 bytes
 Number of allocated blocks: 1
 Number of allocated miniblocks: 4
 
 Block 1 begin
-Zone: 3 - 7
-Miniblock 1:	3	-	4	| RW-
-Miniblock 2:	4	-	5	| RW-
-Miniblock 3:	5	-	6	| RW-
-Miniblock 4:	6	-	7	| RW-
+Zone: 0x3 - 0x7
+Miniblock 1:		0x3		-		0x4		| RW-
+Miniblock 2:		0x4		-		0x5		| RW-
+Miniblock 3:		0x5		-		0x6		| RW-
+Miniblock 4:		0x6		-		0x7		| RW-
 Block 1 end
-Total memory: 14 bytes
-Free memory: 17 bytes
+Total memory: 0x14 bytes
+Free memory: 0x11 bytes
 Number of allocated blocks: 2
 Number of allocated miniblocks: 3
 
 Block 1 begin
-Zone: 3 - 5
-Miniblock 1:	3	-	4	| RW-
-Miniblock 2:	4	-	5	| RW-
+Zone: 0x3 - 0x5
+Miniblock 1:		0x3		-		0x4		| RW-
+Miniblock 2:		0x4		-		0x5		| RW-
 Block 1 end
 
 Block 2 begin
-Zone: 6 - 7
-Miniblock 1:	6	-	7	| RW-
+Zone: 0x6 - 0x7
+Miniblock 1:		0x6		-		0x7		| RW-
 Block 2 end
-2
-3
-4
-1
-6

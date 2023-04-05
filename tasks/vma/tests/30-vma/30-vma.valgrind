@@ -1,0 +1,15 @@
+==8978== Memcheck, a memory error detector
+==8978== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==8978== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==8978== Command: /home/nicky/Desktop/SDA/Virtual-Memory-Allocator/vma
+==8978== Parent PID: 8977
+==8978== 
+==8978== 
+==8978== HEAP SUMMARY:
+==8978==     in use at exit: 0 bytes in 0 blocks
+==8978==   total heap usage: 12 allocs, 12 frees, 8,405 bytes allocated
+==8978== 
+==8978== All heap blocks were freed -- no leaks are possible
+==8978== 
+==8978== For lists of detected and suppressed errors, rerun with: -s
+==8978== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

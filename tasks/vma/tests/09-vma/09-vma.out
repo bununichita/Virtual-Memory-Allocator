@@ -1,12 +1,10 @@
 This zone was already allocated.
-Total memory: A bytes
-Free memory: 9 bytes
+Total memory: 0xA bytes
+Free memory: 0x9 bytes
 Number of allocated blocks: 1
 Number of allocated miniblocks: 1
 
 Block 1 begin
-Zone: 1 - 2
-Miniblock 1:	1	-	2	| RW-
+Zone: 0x1 - 0x2
+Miniblock 1:		0x1		-		0x2		| RW-
 Block 1 end
-1
-1

@@ -37,7 +37,7 @@ int main() {
 			int8_t *data;
 			scanf("%lu %lu ", &addr, &size);
 			data = malloc(size * sizeof(int8_t));
-			for (int i = 0; i < size; i++) {
+			for (uint64_t i = 0; i < size; i++) {
 				data[i] = getc(stdin);
 			}
 			write(arena, (const uint64_t) addr, (const uint64_t) size, data);

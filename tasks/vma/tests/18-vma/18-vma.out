@@ -1,0 +1,112 @@
+Total memory: 64 bytes
+Free memory: 0 bytes
+Number of allocated blocks: 1
+Number of allocated miniblocks: 100
+
+Block 1 begin
+Zone: 0 - 64
+Miniblock 1:	0	-	1	| RW-
+Miniblock 2:	1	-	2	| RW-
+Miniblock 3:	2	-	3	| RW-
+Miniblock 4:	3	-	4	| RW-
+Miniblock 5:	4	-	5	| RW-
+Miniblock 6:	5	-	6	| RW-
+Miniblock 7:	6	-	7	| RW-
+Miniblock 8:	7	-	8	| RW-
+Miniblock 9:	8	-	9	| RW-
+Miniblock 10:	9	-	A	| RW-
+Miniblock 11:	A	-	B	| RW-
+Miniblock 12:	B	-	C	| RW-
+Miniblock 13:	C	-	D	| RW-
+Miniblock 14:	D	-	E	| RW-
+Miniblock 15:	E	-	F	| RW-
+Miniblock 16:	F	-	10	| RW-
+Miniblock 17:	10	-	11	| RW-
+Miniblock 18:	11	-	12	| RW-
+Miniblock 19:	12	-	13	| RW-
+Miniblock 20:	13	-	14	| RW-
+Miniblock 21:	14	-	15	| RW-
+Miniblock 22:	15	-	16	| RW-
+Miniblock 23:	16	-	17	| RW-
+Miniblock 24:	17	-	18	| RW-
+Miniblock 25:	18	-	19	| RW-
+Miniblock 26:	19	-	1A	| RW-
+Miniblock 27:	1A	-	1B	| RW-
+Miniblock 28:	1B	-	1C	| RW-
+Miniblock 29:	1C	-	1D	| RW-
+Miniblock 30:	1D	-	1E	| RW-
+Miniblock 31:	1E	-	1F	| RW-
+Miniblock 32:	1F	-	20	| RW-
+Miniblock 33:	20	-	21	| RW-
+Miniblock 34:	21	-	22	| RW-
+Miniblock 35:	22	-	23	| RW-
+Miniblock 36:	23	-	24	| RW-
+Miniblock 37:	24	-	25	| RW-
+Miniblock 38:	25	-	26	| RW-
+Miniblock 39:	26	-	27	| RW-
+Miniblock 40:	27	-	28	| RW-
+Miniblock 41:	28	-	29	| RW-
+Miniblock 42:	29	-	2A	| RW-
+Miniblock 43:	2A	-	2B	| RW-
+Miniblock 44:	2B	-	2C	| RW-
+Miniblock 45:	2C	-	2D	| RW-
+Miniblock 46:	2D	-	2E	| RW-
+Miniblock 47:	2E	-	2F	| RW-
+Miniblock 48:	2F	-	30	| RW-
+Miniblock 49:	30	-	31	| RW-
+Miniblock 50:	31	-	32	| RW-
+Miniblock 51:	32	-	33	| RW-
+Miniblock 52:	33	-	34	| RW-
+Miniblock 53:	34	-	35	| RW-
+Miniblock 54:	35	-	36	| RW-
+Miniblock 55:	36	-	37	| RW-
+Miniblock 56:	37	-	38	| RW-
+Miniblock 57:	38	-	39	| RW-
+Miniblock 58:	39	-	3A	| RW-
+Miniblock 59:	3A	-	3B	| RW-
+Miniblock 60:	3B	-	3C	| RW-
+Miniblock 61:	3C	-	3D	| RW-
+Miniblock 62:	3D	-	3E	| RW-
+Miniblock 63:	3E	-	3F	| RW-
+Miniblock 64:	3F	-	40	| RW-
+Miniblock 65:	40	-	41	| RW-
+Miniblock 66:	41	-	42	| RW-
+Miniblock 67:	42	-	43	| RW-
+Miniblock 68:	43	-	44	| RW-
+Miniblock 69:	44	-	45	| RW-
+Miniblock 70:	45	-	46	| RW-
+Miniblock 71:	46	-	47	| RW-
+Miniblock 72:	47	-	48	| RW-
+Miniblock 73:	48	-	49	| RW-
+Miniblock 74:	49	-	4A	| RW-
+Miniblock 75:	4A	-	4B	| RW-
+Miniblock 76:	4B	-	4C	| RW-
+Miniblock 77:	4C	-	4D	| RW-
+Miniblock 78:	4D	-	4E	| RW-
+Miniblock 79:	4E	-	4F	| RW-
+Miniblock 80:	4F	-	50	| RW-
+Miniblock 81:	50	-	51	| RW-
+Miniblock 82:	51	-	52	| RW-
+Miniblock 83:	52	-	53	| RW-
+Miniblock 84:	53	-	54	| RW-
+Miniblock 85:	54	-	55	| RW-
+Miniblock 86:	55	-	56	| RW-
+Miniblock 87:	56	-	57	| RW-
+Miniblock 88:	57	-	58	| RW-
+Miniblock 89:	58	-	59	| RW-
+Miniblock 90:	59	-	5A	| RW-
+Miniblock 91:	5A	-	5B	| RW-
+Miniblock 92:	5B	-	5C	| RW-
+Miniblock 93:	5C	-	5D	| RW-
+Miniblock 94:	5D	-	5E	| RW-
+Miniblock 95:	5E	-	5F	| RW-
+Miniblock 96:	5F	-	60	| RW-
+Miniblock 97:	60	-	61	| RW-
+Miniblock 98:	61	-	62	| RW-
+Miniblock 99:	62	-	63	| RW-
+Miniblock 100:	63	-	64	| RW-
+Block 1 end
+Total memory: 64 bytes
+Free memory: 100 bytes
+Number of allocated blocks: 0
+Number of allocated miniblocks: 0

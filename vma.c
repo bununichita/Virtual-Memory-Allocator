@@ -349,7 +349,6 @@ dll_intersectie_block(arena_t* arena, const uint64_t address, const uint64_t siz
 	// Verificam daca lista de block-uri este goala
 	//printf("%lu\n", arena->block_list->size);
 	if (!arena->block_list->size) {
-		printf("Lista de block-uri este goala\n");
 		return 0;
 	}
 	node_t* curr;
@@ -595,19 +594,33 @@ void dealloc_arena(arena_t *arena)
 		return;
 	}
 
-	for (int i = 0; i < arena->block_list->size; i++) {
+	uint64_t b_list_size = arena->block_list->size;
+
+	for (int i = 0; i < b_list_size; i++) {
 		node_t* curr;
 		curr = arena->block_list->head;
+		node_t* next_b;
+		if (i != b_list_size - 1) {
+			next_b = curr->next;
+		}
 		node_t* curr_mini;
 		curr_mini = ((list_t*)((block_t*)curr->data)->miniblock_list)->head;
 		printf("%lu\n", ((list_t*)((block_t*)curr->data)->miniblock_list)->size);
-		for (int j = 0; j < ((list_t*)((block_t*)curr->data)->miniblock_list)->size; j++) {
+		uint64_t m_list_size = ((list_t*)((block_t*)curr->data)->miniblock_list)->size;
+		for (int j = 0; j < m_list_size; j++) {
+			node_t* next_m;
+			if (j != m_list_size - 1) {
+				next_m = curr_mini->next;
+			}
 			printf("%lu\n", ((miniblock_t*)curr_mini->data)->start_address);
 			free_block(arena, ((miniblock_t*)curr_mini->data)->start_address);
-			if (j != ((list_t*)((block_t*)curr->data)->miniblock_list)->size - 1) {
-				curr_mini = curr_mini->next;
+			if (j != m_list_size - 1) {
+				curr_mini = next_m;
 			}
 			
+		}
+		if (i != b_list_size - 1) {
+			curr = next_b;
 		}
 		// printf("%lu\n", ((block_t*)curr->data)->start_address);
 		// free_block(arena, ((block_t*)curr->data)->start_address);

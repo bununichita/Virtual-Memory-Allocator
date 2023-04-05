@@ -1,0 +1,762 @@
+Total memory: 3C74 bytes
+Free memory: 15476 bytes
+Number of allocated blocks: 0
+Number of allocated miniblocks: 0
+Invalid address for free.
+Invalid address for free.
+Total memory: 3C74 bytes
+Free memory: 15476 bytes
+Number of allocated blocks: 0
+Number of allocated miniblocks: 0
+Total memory: 3C74 bytes
+Free memory: 15476 bytes
+Number of allocated blocks: 0
+Number of allocated miniblocks: 0
+Total memory: 3C74 bytes
+Free memory: 15220 bytes
+Number of allocated blocks: 1
+Number of allocated miniblocks: 1
+
+Block 1 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 1 end
+Total memory: 3C74 bytes
+Free memory: 15220 bytes
+Number of allocated blocks: 1
+Number of allocated miniblocks: 1
+
+Block 1 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 1 end
+Total memory: 3C74 bytes
+Free memory: 14540 bytes
+Number of allocated blocks: 5
+Number of allocated miniblocks: 5
+
+Block 1 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 5 end
+Total memory: 3C74 bytes
+Free memory: 13676 bytes
+Number of allocated blocks: 9
+Number of allocated miniblocks: 9
+
+Block 1 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 9 end
+Total memory: 3C74 bytes
+Free memory: 13548 bytes
+Number of allocated blocks: 10
+Number of allocated miniblocks: 10
+
+Block 1 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 10 end
+This zone was already allocated.
+Total memory: 3C74 bytes
+Free memory: 13212 bytes
+Number of allocated blocks: 13
+Number of allocated miniblocks: 13
+
+Block 1 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 13 end
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 13 end
+
+Block 14 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 14 end
+
+Block 15 begin
+Zone: 160C - 168C
+Miniblock 1:	160C	-	168C	| RW-
+Block 15 end
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 13 end
+
+Block 14 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 14 end
+
+Block 15 begin
+Zone: 160C - 168C
+Miniblock 1:	160C	-	168C	| RW-
+Block 15 end
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 13 end
+
+Block 14 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 14 end
+
+Block 15 begin
+Zone: 160C - 168C
+Miniblock 1:	160C	-	168C	| RW-
+Block 15 end
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 13 end
+
+Block 14 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 14 end
+
+Block 15 begin
+Zone: 160C - 168C
+Miniblock 1:	160C	-	168C	| RW-
+Block 15 end
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 13 end
+
+Block 14 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 14 end
+
+Block 15 begin
+Zone: 160C - 168C
+Miniblock 1:	160C	-	168C	| RW-
+Block 15 end
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Miniblock 1:	367	-	467	| RW-
+Block 10 end
+
+Block 11 begin
+Zone: 1302 - 1382
+Miniblock 1:	1302	-	1382	| RW-
+Block 11 end
+
+Block 12 begin
+Zone: 4A8 - 4B8
+Miniblock 1:	4A8	-	4B8	| RW-
+Block 12 end
+
+Block 13 begin
+Zone: 7D6 - 816
+Miniblock 1:	7D6	-	816	| RW-
+Block 13 end
+
+Block 14 begin
+Zone: 61E - 71E
+Miniblock 1:	61E	-	71E	| RW-
+Block 14 end
+
+Block 15 begin
+Zone: 160C - 168C
+Miniblock 1:	160C	-	168C	| RW-
+Block 15 end
+Invalid address for free
+Total memory: 3C74 bytes
+Free memory: 13080 bytes
+Number of allocated blocks: 15
+Number of allocated miniblocks: 15
+
+Block 1 begin
+Zone: 12A - 12E
+Miniblock 1:	12A	-	12E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 215 - 235
+Miniblock 1:	215	-	235	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 1037 - 103F
+Miniblock 1:	1037	-	103F	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 104A - 114A
+Miniblock 1:	104A	-	114A	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: 1D16 - 1D96
+Miniblock 1:	1D16	-	1D96	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 16B1 - 18B1
+Miniblock 1:	16B1	-	18B1	| RW-
+Block 6 end
+
+Block 7 begin
+Zone: E69 - E89
+Miniblock 1:	E69	-	E89	| RW-
+Block 7 end
+
+Block 8 begin
+Zone: A23 - A63
+Miniblock 1:	A23	-	A63	| RW-
+Block 8 end
+
+Block 9 begin
+Zone: 1D9F - 1F9F
+Miniblock 1:	1D9F	-	1F9F	| RW-
+Block 9 end
+
+Block 10 begin
+Zone: 367 - 467
+Minibl

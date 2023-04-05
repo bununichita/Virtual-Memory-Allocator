@@ -1,0 +1,23 @@
+Total memory: A bytes
+Free memory: 8 bytes
+Number of allocated blocks: 2
+Number of allocated miniblocks: 2
+
+Block 1 begin
+Zone: 1 - 2
+Miniblock 1:	1	-	2	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 5 - 6
+Miniblock 1:	5	-	6	| RW-
+Block 2 end
+Total memory: A bytes
+Free memory: 9 bytes
+Number of allocated blocks: 1
+Number of allocated miniblocks: 1
+
+Block 1 begin
+Zone: 5 - 6
+Miniblock 1:	5	-	6	| RW-
+Block 1 end

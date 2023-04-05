@@ -1,0 +1,13 @@
+The end address is past the size of the arena
+This zone was already allocated.
+Total memory: A bytes
+Free memory: 9 bytes
+Number of allocated blocks: 1
+Number of allocated miniblocks: 1
+
+Block 1 begin
+Zone: 5 - 6
+Miniblock 1:	5	-	6	| RW-
+Block 1 end
+1
+5

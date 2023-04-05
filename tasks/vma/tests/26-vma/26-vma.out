@@ -1,0 +1,46 @@
+Total memory: 3E8 bytes
+Free memory: 740 bytes
+Number of allocated blocks: 6
+Number of allocated miniblocks: 6
+
+Block 1 begin
+Zone: 64 - 6E
+Miniblock 1:	64	-	6E	| RW-
+Block 1 end
+
+Block 2 begin
+Zone: 12C - 136
+Miniblock 1:	12C	-	136	| RW-
+Block 2 end
+
+Block 3 begin
+Zone: 190 - 19A
+Miniblock 1:	190	-	19A	| RW-
+Block 3 end
+
+Block 4 begin
+Zone: 1F4 - 1FE
+Miniblock 1:	1F4	-	1FE	| RW-
+Block 4 end
+
+Block 5 begin
+Zone: C8 - DC
+Miniblock 1:	C8	-	DC	| RW-
+Block 5 end
+
+Block 6 begin
+Zone: 2BC - 384
+Miniblock 1:	2BC	-	384	| RW-
+Block 6 end
+1
+100
+1
+300
+1
+400
+1
+500
+1
+200
+1
+700

@@ -655,6 +655,7 @@ void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 		printf("The allocated address is outside the size of arena\n");
 		return;
 	}
+	// printf("arena->arena_size = %lu      address + size = %lu\n", arena->arena_size, address + size);
 	if (arena->arena_size < address + size) {
 		printf("The end address is past the size of the arena\n");
 		return;
@@ -827,7 +828,84 @@ void free_block(arena_t *arena, const uint64_t address)
 
 void read(arena_t *arena, uint64_t address, uint64_t size)
 {
+	if (!arena->block_list->size) {
+		printf("Invalid address for free.\n");
+	}
 
+	node_t* curr;
+	curr = arena->block_list->head;
+	for (int i = 0; i < arena->block_list->size; i++) {
+		uint64_t start_block, size_block;
+		start_block = ((block_t*)curr->data)->start_address;
+		size_block = ((block_t*)curr->data)->size;
+		if(start_block <= address && address < start_block + size_block) {
+			uint64_t cut;
+			if (address + size > start_block + size_block) {
+				cut = start_block + size_block - address;
+				printf("Warning: size was bigger than the block size. Writing %lu characters.\n", cut);
+			} else {
+				cut = size;
+			}
+            uint64_t copy_cut = cut;
+			node_t* curr_mini;
+			curr_mini = ((list_t*)((block_t*)curr->data)->miniblock_list)->head;
+			for (int j = 0; j < ((list_t*)((block_t*)curr->data)->miniblock_list)->size; j++) {
+				if (((miniblock_t*)curr_mini->data)->start_address <= address && address < ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size) {
+					
+                    
+                    uint64_t aux;
+                    aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
+					if (address + size <= aux) {
+						
+						for (int count = 0; count < size; count++) {
+							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count]);
+						}
+						printf("\n");
+						return;
+					} else {
+						uint64_t alloc_size;
+						alloc_size = aux - address;
+						
+						for (int count = 0; count < alloc_size; count++) {
+							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count]);
+						}
+						uint64_t next_count = alloc_size;
+						cut -= alloc_size ;
+						curr_mini = curr_mini->next;
+						while (cut > 0) {
+							if (cut > ((miniblock_t*)curr_mini->data)->size) {
+								
+								for (int count = 0; count < ((miniblock_t*)curr_mini->data)->size; count++) {
+									printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count]);
+								}
+								cut -= ((miniblock_t*)curr_mini->data)->size;
+							} else {
+								
+								for (int count = 0; count < cut; count++) {
+									printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count]);
+								}
+								printf("\n");
+								return;
+
+							}
+							curr_mini = curr_mini->next;
+						}
+					}
+					
+
+                    
+                    
+                    // ((miniblock_t*)curr_mini->data)->rw_buffer = realloc(((miniblock_t*)curr_mini->data)->rw_buffer, cut * sizeof(int8_t));
+
+				}
+				
+				curr_mini = curr_mini->next;
+			}
+			printf("Invalid address for free.\n");
+		}
+
+		curr = curr->next;
+	}
 }
 
 void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *data)
@@ -848,12 +926,6 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 			if (address + size > start_block + size_block) {
 				cut = start_block + size_block - address;
 				printf("Warning: size was bigger than the block size. Writing %lu characters.\n", cut);
-				
-				// uint64_t copy_cut;
-				// copy_cut = cut;
-				// while(copy_cut > ((miniblock_t*)curr_mini->data)->size) {
-					
-				// }
 			} else {
 				cut = size;
 			}
@@ -867,7 +939,8 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
                     uint64_t aux;
                     aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
 					if (address + size <= aux) {
-						((miniblock_t*)curr_mini->data)->rw_buffer = realloc(((miniblock_t*)curr_mini->data)->rw_buffer, size * sizeof(int8_t));
+						free(((miniblock_t*)curr_mini->data)->rw_buffer);
+						((miniblock_t*)curr_mini->data)->rw_buffer = malloc(size * sizeof(int8_t));
 						for (int count = 0; count < size; count++) {
 							((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[count];
 						}
@@ -875,9 +948,35 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 					} else {
 						uint64_t alloc_size;
 						alloc_size = aux - address;
-						((miniblock_t*)curr_mini->data)->rw_buffer = realloc(((miniblock_t*)curr_mini->data)->rw_buffer, alloc_size * sizeof(int8_t));
+						free(((miniblock_t*)curr_mini->data)->rw_buffer);
+						((miniblock_t*)curr_mini->data)->rw_buffer = malloc(alloc_size * sizeof(int8_t));
+						for (int count = 0; count < alloc_size; count++) {
+							((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[count];
+						}
+						uint64_t next_count = alloc_size;
 						cut -= alloc_size ;
+						curr_mini = curr_mini->next;
+						while (cut > 0) {
+							if (cut > ((miniblock_t*)curr_mini->data)->size) {
+								free(((miniblock_t*)curr_mini->data)->rw_buffer);
+								((miniblock_t*)curr_mini->data)->rw_buffer = malloc(((miniblock_t*)curr_mini->data)->size * sizeof(int8_t));
+								for (int count = 0; count < ((miniblock_t*)curr_mini->data)->size; count++) {
+									((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[next_count];
+									next_count++;
+								}
+								cut -= ((miniblock_t*)curr_mini->data)->size;
+							} else {
+								free(((miniblock_t*)curr_mini->data)->rw_buffer);
+								((miniblock_t*)curr_mini->data)->rw_buffer = malloc(cut * sizeof(int8_t));
+								for (int count = 0; count < cut; count++) {
+									((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[next_count];
+									next_count++;
+								}
+								return;
 
+							}
+							curr_mini = curr_mini->next;
+						}
 					}
 					
 
@@ -965,7 +1064,53 @@ void pmap(const arena_t *arena)
 	
 }
 
-void mprotect(arena_t *arena, uint64_t address, int8_t *permission)
+int8_t perm_pars(char s[50])
 {
+	char *p;
+	int8_t perm = 0;
+	p = strtok(s, " | ");
+	while (p) {
+		if (strncmp(p, "PROT_NONE", 9) == 0) {
+			return 0;
+		}
+		if (strncmp(p, "PROT_READ", 9) == 0) {
+			perm += 4;
+		}
+		if (strncmp(p, "PROT_WRITE", 10) == 0) {
+			perm += 2;
+		}
+		if (strncmp(p, "PROT_EXEC", 9) == 0) {
+			perm += 1;
+		}
+        p = strtok(NULL, " | ");
+	}
+	return perm;
+}
 
+void mprotect(arena_t *arena, uint64_t address, int8_t *permission)
+{	
+	if (!arena->block_list->size) {
+		printf("Invalid address for mprotect.\n");
+		return;
+	}
+	node_t* curr;
+	curr = arena->block_list->head;
+	for (int i = 0; i < arena->block_list->size; i++) {
+		uint64_t start_block, size_block;
+		start_block = ((block_t*)curr->data)->start_address;
+		size_block = ((block_t*)curr->data)->size;
+		if(start_block <= address && address < start_block + size_block) {
+			node_t* curr_mini;
+			curr_mini = ((list_t*)((block_t*)curr->data)->miniblock_list)->head;
+			for (int j = 0; j < ((list_t*)((block_t*)curr->data)->miniblock_list)->size; j++) {
+				if (((miniblock_t*)curr_mini->data)->start_address == address) {
+					((miniblock_t*)curr_mini->data)->perm = *permission;
+					return;
+				}
+				curr_mini = curr_mini->next;
+			}
+		}
+		curr = curr->next;
+	}
+	printf("Invalid address for mprotect.\n");
 }

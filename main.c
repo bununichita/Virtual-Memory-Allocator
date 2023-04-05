@@ -35,14 +35,25 @@ int main() {
 		if(strncmp(command, "WRITE", 5) == 0){
 			uint64_t addr, size;
 			int8_t *data;
-			scanf("%lu %lu %hhd", &addr, &size, &(*(data)));
+			scanf("%lu %lu ", &addr, &size);
+			data = malloc(size * sizeof(int8_t));
+			for (int i = 0; i < size; i++) {
+				data[i] = getc(stdin);
+			}
 			write(arena, (const uint64_t) addr, (const uint64_t) size, data);
+			free(data);
 		}
 		if(strncmp(command, "PMAP", 4) == 0){
 			pmap(arena);
 		}
-		if(strncmp(command, "MPROTECT", 8) == 0){
-			mprotect(arena, address, )
+        if(strncmp(command, "MPROTECT", 8) == 0) {
+            uint64_t address;
+            scanf("%lu ", &address);
+            char s[50];
+            fgets(s, 50, stdin);
+			int8_t perm;
+			perm = perm_pars(s);
+			mprotect(arena, address, &perm);
 		}
 	}
 	return 0;

@@ -30,7 +30,8 @@ int main() {
 		} else if(strcmp(command, "WRITE") == 0){
 			uint64_t addr, size;
 			int8_t *data;
-			scanf("%lu %lu ", &addr, &size);
+			scanf("%lu %lu", &addr, &size);
+			getc(stdin);
 			data = malloc(size * sizeof(int8_t));
 			for (uint64_t i = 0; i < size; i++) {
 				data[i] = getc(stdin);

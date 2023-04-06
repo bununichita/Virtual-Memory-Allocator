@@ -744,6 +744,7 @@ void alloc_block_simple(arena_t *arena, const uint64_t address, const uint64_t s
 			previous = curr->prev;
 			break;
 		}
+		curr = curr->next;
 	}
 	if (!previous) {
 		new->next = arena->block_list->head;
@@ -874,14 +875,19 @@ void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 	}
 }
 
-
-
-void read(arena_t *arena, uint64_t address, uint64_t size)
+int read_protected(node_t* miniblock)
 {
-	if (!arena->block_list->size) {
-		printf("Invalid address for read.\n");
+	int8_t perm;
+	perm = ((miniblock_t*)miniblock->data)->perm;
+	if (perm < 4) {
+		return 1;
 	}
+	return 0;
+}
 
+int mprotect_read(arena_t *arena, uint64_t address, uint64_t size)
+{
+	int is_protected = 0;
 	node_t* curr;
 	curr = arena->block_list->head;
 	for (int i = 0; i < arena->block_list->size; i++) {
@@ -896,7 +902,6 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 			} else {
 				cut = size;
 			}
-            uint64_t copy_cut = cut;
 			node_t* curr_mini;
 			curr_mini = ((list_t*)((block_t*)curr->data)->miniblock_list)->head;
 			for (int j = 0; j < ((list_t*)((block_t*)curr->data)->miniblock_list)->size; j++) {
@@ -906,18 +911,111 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
                     uint64_t aux;
                     aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
 					if (address + cut <= aux) {
-						
+						uint64_t start_read;
+						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
+						if (read_protected(curr_mini)) {
+							printf("Invalid permissions for read.\n");
+							return 1;
+						}
+						return 0;
+					} else {
+						uint64_t alloc_size;
+						alloc_size = aux - address;
+						uint64_t start_read;
+						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
+						if (read_protected(curr_mini)) {
+							printf("Invalid permissions for read.\n");
+							return 1;
+						}
+						uint64_t next_count = alloc_size;
+						cut -= alloc_size ;
+						curr_mini = curr_mini->next;
+						while (cut > 0) {
+							if (cut > ((miniblock_t*)curr_mini->data)->size) {
+								
+								if (read_protected(curr_mini)) {
+									printf("Invalid permissions for read.\n");
+									return 1;
+								}
+								cut -= ((miniblock_t*)curr_mini->data)->size;
+							} else {
+								
+								if (read_protected(curr_mini)) {
+									printf("Invalid permissions for read.\n");
+									return 1;
+								}
+								return 0;
+
+							}
+							curr_mini = curr_mini->next;
+						}
+					}
+					
+
+                    
+                    
+                    // ((miniblock_t*)curr_mini->data)->rw_buffer = realloc(((miniblock_t*)curr_mini->data)->rw_buffer, cut * sizeof(int8_t));
+
+				}
+				
+				curr_mini = curr_mini->next;
+			}
+			//printf("Invalid address for read.\n");
+		}
+
+		curr = curr->next;
+	}
+	printf("Invalid address for read.\n");
+	return 2;
+}
+
+void read(arena_t *arena, uint64_t address, uint64_t size)
+{
+	if (!arena->block_list->size) {
+		printf("Invalid address for read.\n");
+		return;
+	}
+	if (mprotect_read(arena, address, size))
+		return;
+
+
+	node_t* curr;
+	curr = arena->block_list->head;
+	for (int i = 0; i < arena->block_list->size; i++) {
+		uint64_t start_block, size_block;
+		start_block = ((block_t*)curr->data)->start_address;
+		size_block = ((block_t*)curr->data)->size;
+		if(start_block <= address && address < start_block + size_block) {
+			uint64_t cut;
+			if (address + size > start_block + size_block) {
+				cut = start_block + size_block - address;
+				//printf("Warning: size was bigger than the block size. Reading %lu characters.\n", cut);
+			} else {
+				cut = size;
+			}
+			node_t* curr_mini;
+			curr_mini = ((list_t*)((block_t*)curr->data)->miniblock_list)->head;
+			for (int j = 0; j < ((list_t*)((block_t*)curr->data)->miniblock_list)->size; j++) {
+				if (((miniblock_t*)curr_mini->data)->start_address <= address && address < ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size) {
+					
+                    
+                    uint64_t aux;
+                    aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
+					if (address + cut <= aux) {
+						uint64_t start_read;
+						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
 						for (int count = 0; count < cut; count++) {
-							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count]);
+							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count + start_read]);
 						}
 						printf("\n");
 						return;
 					} else {
 						uint64_t alloc_size;
 						alloc_size = aux - address;
-						
+						uint64_t start_read;
+						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
 						for (int count = 0; count < alloc_size; count++) {
-							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count]);
+							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count + start_read]);
 						}
 						uint64_t next_count = alloc_size;
 						cut -= alloc_size ;
@@ -951,12 +1049,24 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 				
 				curr_mini = curr_mini->next;
 			}
-			printf("Invalid address for read.\n");
+			//printf("Invalid address for read.\n");
 		}
 
 		curr = curr->next;
 	}
+	//printf("Invalid address for read.\n");
 }
+
+int write_protected(node_t* miniblock) {
+	int8_t perm;
+	perm = ((miniblock_t*)miniblock->data)->perm;
+	if (1 < perm && perm < 4)
+		return 0;
+	if (5 < perm)
+		return 0;
+	return 1;
+}
+
 
 void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *data)
 {
@@ -991,18 +1101,22 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
                     aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
 					if (address + cut <= aux) {
 						free(((miniblock_t*)curr_mini->data)->rw_buffer);
-						((miniblock_t*)curr_mini->data)->rw_buffer = malloc(cut * sizeof(int8_t));
+						((miniblock_t*)curr_mini->data)->rw_buffer = malloc(((miniblock_t*)curr_mini->data)->size * sizeof(int8_t));
+						uint64_t start_write;
+						start_write = address - ((miniblock_t*)curr_mini->data)->start_address;
 						for (int count = 0; count < cut; count++) {
-							((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[count];
+							((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[start_write + count] = data[count];
 						}
 						return;
 					} else {
 						uint64_t alloc_size;
 						alloc_size = aux - address;
+						uint64_t start_write;
+						start_write = address - ((miniblock_t*)curr_mini->data)->start_address;
 						free(((miniblock_t*)curr_mini->data)->rw_buffer);
-						((miniblock_t*)curr_mini->data)->rw_buffer = malloc(alloc_size * sizeof(int8_t));
+						((miniblock_t*)curr_mini->data)->rw_buffer = malloc(((miniblock_t*)curr_mini->data)->size * sizeof(int8_t));
 						for (int count = 0; count < alloc_size; count++) {
-							((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[count];
+							((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[start_write + count] = data[count];
 						}
 						uint64_t next_count = alloc_size;
 						cut -= alloc_size ;
@@ -1018,7 +1132,7 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 								cut -= ((miniblock_t*)curr_mini->data)->size;
 							} else {
 								free(((miniblock_t*)curr_mini->data)->rw_buffer);
-								((miniblock_t*)curr_mini->data)->rw_buffer = malloc(cut * sizeof(int8_t));
+								((miniblock_t*)curr_mini->data)->rw_buffer = malloc(((miniblock_t*)curr_mini->data)->size * sizeof(int8_t));
 								for (int count = 0; count < cut; count++) {
 									((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count] = data[next_count];
 									next_count++;

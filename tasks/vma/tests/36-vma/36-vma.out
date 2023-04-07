@@ -7325,3 +7325,152 @@ Block 1217 begin
 Zone: 0x1325000 - 0x1328000
 Miniblock 1:		0x1325000		-		0x1326000		| RW-
 Miniblock 2:		0x1326000		-		0x1327000		| RW-
+Miniblock 3:		0x1327000		-		0x1328000		| RW-
+Block 1217 end
+
+Block 1218 begin
+Zone: 0x1329000 - 0x132A000
+Miniblock 1:		0x1329000		-		0x132A000		| RW-
+Block 1218 end
+
+Block 1219 begin
+Zone: 0x132B000 - 0x132C000
+Miniblock 1:		0x132B000		-		0x132C000		| RW-
+Block 1219 end
+
+Block 1220 begin
+Zone: 0x132F000 - 0x1331000
+Miniblock 1:		0x132F000		-		0x1330000		| RW-
+Miniblock 2:		0x1330000		-		0x1331000		| RW-
+Block 1220 end
+
+Block 1221 begin
+Zone: 0x1332000 - 0x1336000
+Miniblock 1:		0x1332000		-		0x1333000		| RW-
+Miniblock 2:		0x1333000		-		0x1334000		| RW-
+Miniblock 3:		0x1334000		-		0x1335000		| RW-
+Miniblock 4:		0x1335000		-		0x1336000		| RW-
+Block 1221 end
+
+Block 1222 begin
+Zone: 0x1337000 - 0x133A000
+Miniblock 1:		0x1337000		-		0x1338000		| RW-
+Miniblock 2:		0x1338000		-		0x1339000		| RW-
+Miniblock 3:		0x1339000		-		0x133A000		| RW-
+Block 1222 end
+
+Block 1223 begin
+Zone: 0x133C000 - 0x133E000
+Miniblock 1:		0x133C000		-		0x133D000		| RW-
+Miniblock 2:		0x133D000		-		0x133E000		| RW-
+Block 1223 end
+
+Block 1224 begin
+Zone: 0x133F000 - 0x1340000
+Miniblock 1:		0x133F000		-		0x1340000		| RW-
+Block 1224 end
+
+Block 1225 begin
+Zone: 0x1347000 - 0x1348000
+Miniblock 1:		0x1347000		-		0x1348000		| RW-
+Block 1225 end
+
+Block 1226 begin
+Zone: 0x134C000 - 0x134E000
+Miniblock 1:		0x134C000		-		0x134D000		| RW-
+Miniblock 2:		0x134D000		-		0x134E000		| RW-
+Block 1226 end
+
+Block 1227 begin
+Zone: 0x1351000 - 0x1352000
+Miniblock 1:		0x1351000		-		0x1352000		| RW-
+Block 1227 end
+
+Block 1228 begin
+Zone: 0x1353000 - 0x1355000
+Miniblock 1:		0x1353000		-		0x1354000		| RW-
+Miniblock 2:		0x1354000		-		0x1355000		| RW-
+Block 1228 end
+
+Block 1229 begin
+Zone: 0x1357000 - 0x1358000
+Miniblock 1:		0x1357000		-		0x1358000		| RW-
+Block 1229 end
+
+Block 1230 begin
+Zone: 0x135A000 - 0x135B000
+Miniblock 1:		0x135A000		-		0x135B000		| RW-
+Block 1230 end
+
+Block 1231 begin
+Zone: 0x135C000 - 0x135D000
+Miniblock 1:		0x135C000		-		0x135D000		| RW-
+Block 1231 end
+
+Block 1232 begin
+Zone: 0x135E000 - 0x1360000
+Miniblock 1:		0x135E000		-		0x135F000		| RW-
+Miniblock 2:		0x135F000		-		0x1360000		| RW-
+Block 1232 end
+
+Block 1233 begin
+Zone: 0x1361000 - 0x1365000
+Miniblock 1:		0x1361000		-		0x1362000		| RW-
+Miniblock 2:		0x1362000		-		0x1363000		| RW-
+Miniblock 3:		0x1363000		-		0x1364000		| RW-
+Miniblock 4:		0x1364000		-		0x1365000		| RW-
+Block 1233 end
+
+Block 1234 begin
+Zone: 0x1366000 - 0x1367000
+Miniblock 1:		0x1366000		-		0x1367000		| RW-
+Block 1234 end
+
+Block 1235 begin
+Zone: 0x136A000 - 0x136B000
+Miniblock 1:		0x136A000		-		0x136B000		| RW-
+Block 1235 end
+
+Block 1236 begin
+Zone: 0x136E000 - 0x136F000
+Miniblock 1:		0x136E000		-		0x136F000		| RW-
+Block 1236 end
+
+Block 1237 begin
+Zone: 0x1371000 - 0x1375000
+Miniblock 1:		0x1371000		-		0x1372000		| RW-
+Miniblock 2:		0x1372000		-		0x1373000		| RW-
+Miniblock 3:		0x1373000		-		0x1374000		| RW-
+Miniblock 4:		0x1374000		-		0x1375000		| RW-
+Block 1237 end
+
+Block 1238 begin
+Zone: 0x137B000 - 0x137C000
+Miniblock 1:		0x137B000		-		0x137C000		| RW-
+Block 1238 end
+
+Block 1239 begin
+Zone: 0x137D000 - 0x137E000
+Miniblock 1:		0x137D000		-		0x137E000		| RW-
+Block 1239 end
+
+Block 1240 begin
+Zone: 0x137F000 - 0x1382000
+Miniblock 1:		0x137F000		-		0x1380000		| RW-
+Miniblock 2:		0x1380000		-		0x1381000		| RW-
+Miniblock 3:		0x1381000		-		0x1382000		| RW-
+Block 1240 end
+
+Block 1241 begin
+Zone: 0x1385000 - 0x1386000
+Miniblock 1:		0x1385000		-		0x1386000		| RW-
+Block 1241 end
+
+Block 1242 begin
+Zone: 0x1387000 - 0x1388000
+Miniblock 1:		0x1387000		-		0x1388000		| RW-
+Block 1242 end
+Total memory: 0x1388000 bytes
+Free memory: 0x1388000 bytes
+Number of allocated blocks: 0
+Number of allocated miniblocks: 0

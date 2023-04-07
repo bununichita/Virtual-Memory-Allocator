@@ -2,9 +2,9 @@
 
 
 
-list_t *dll_create(unsigned int data_size)
+list_t* dll_create(unsigned int data_size)
 {
-    list_t* list;
+	list_t* list;
     list = malloc(sizeof(list_t));
     list->head = NULL;
 	list->tail = NULL;
@@ -13,17 +13,19 @@ list_t *dll_create(unsigned int data_size)
     return list;
 }
 
-int dll_intersectie_block(arena_t* arena, const uint64_t address, const uint64_t size)
+int block_inters(arena_t* arena, const uint64_t address, const uint64_t size)
 {
+	// Functie care intoarce 1 daca noul block se intersecteaza
+	// cu unul deja stocat si 0 in caz contrar
 	if (!arena->block_list->size) {
 		return 0;
 	}
-	node_t* curr;
+	node_t *curr;
 	curr = arena->block_list->head;	
 	for (uint64_t i = 0; i < arena->block_list->size; i++) {
 		uint64_t start_old, stop_old, start_new, stop_new;
-		start_old = ((block_t*)curr->data)->start_address;
-		stop_old = ((block_t*)curr->data)->start_address + ((block_t*)curr->data)->size - 1;
+		start_old = ((block_t *)curr->data)->start_address;
+		stop_old = start_old + ((block_t*)curr->data)->size - 1;
 		start_new = address;
 		stop_new = address + size - 1;
 		if (start_new >= start_old && start_new <= stop_old) {
@@ -40,37 +42,41 @@ int dll_intersectie_block(arena_t* arena, const uint64_t address, const uint64_t
 	return 0;
 }
 
-node_t* merge_left(arena_t* arena, const uint64_t address, const uint64_t size)
+node_t* merge_left(arena_t* arena, const uint64_t address)
 {
-	if (!arena->block_list->size) {
+	// Functie care intoarce adresa nodului cu care se va lipi la stanga
+	// sau NULL daca nu este nevoie de acest lucru
+	if (!arena->block_list->size)
 		return NULL;
-	}	
-	node_t* curr;
+	node_t *curr;
 	curr = arena->block_list->head;
-	if (address < ((block_t*)curr->data)->start_address) {
+	if (address < ((block_t *)curr->data)->start_address)
 		return NULL;
-	}
 	for (uint64_t i = 0; i < arena->block_list->size; i++) {
-		if (((block_t*)curr->data)->start_address + ((block_t*)curr->data)->size > address) {
+		uint64_t start_addr = ((block_t *)curr->data)->start_address;
+		uint64_t block_size = ((block_t *)curr->data)->size;
+		if (start_addr + block_size > address)
 			return NULL;
-		}
-		if (((block_t*)curr->data)->start_address + ((block_t*)curr->data)->size == address)
+		if (start_addr + block_size == address)
 			return curr;
 		curr = curr->next;
 	}
 	return NULL;
 }
 
-node_t* merge_right(arena_t* arena,node_t* left, const uint64_t address, const uint64_t size)
+node_t* merge_right(arena_t* arena, node_t *left, const uint64_t address, const uint64_t size)
 {
-	if (!arena->block_list->size) {
+	// Functie care intoarce adresa nodului cu care se va lipi la dreapta
+	// sau NULL daca nu este nevoie de acest lucru
+	if (!arena->block_list->size)
 		return NULL;
-	}
-	node_t* curr;
+	node_t *curr;
+	// In caz ca avem nod lipit la stanga stim sigur ca trebuie sa
+	// verificam left->next
 	if (left) {
 		if (left->next) {
 			curr = left->next;
-			if (address + size == ((block_t*)curr->data)->start_address) {
+			if (address + size == ((block_t *)curr->data)->start_address) {
 				return curr;
 			} else {
 				return NULL;
@@ -81,19 +87,16 @@ node_t* merge_right(arena_t* arena,node_t* left, const uint64_t address, const u
 	}
 	curr = arena->block_list->tail;
 	for (uint64_t i = 0; i < arena->block_list->size; i++) {
-		if (address + size > ((block_t*)curr->data)->start_address) {
+		if (address + size > ((block_t *)curr->data)->start_address)
 			return NULL;
-		}
-		if (address + size == ((block_t*)curr->data)->start_address) {
+		if (address + size == ((block_t *)curr->data)->start_address)
 			return curr;
-		}
 		curr = curr->prev;
 	}
 	return NULL;
-
 }
 
-arena_t *alloc_arena(const uint64_t size)
+arena_t* alloc_arena(const uint64_t size)
 {
     arena_t* arena;
 	arena = malloc(sizeof(arena_t));
@@ -102,7 +105,7 @@ arena_t *alloc_arena(const uint64_t size)
 	return arena;
 }
 
-void free_block(arena_t *arena, const uint64_t address)
+void free_block(arena_t* arena, const uint64_t address)
 {
 	if (!arena->block_list->size) {
 		printf("Invalid address for free.\n");
@@ -190,7 +193,7 @@ void free_block(arena_t *arena, const uint64_t address)
 						return;
 					}
 					// Cazul in care miniblock-ul este la in interiorul listei de miniblock-uri
-					node_t* new, *new2;		
+					node_t* new;		
 					new = malloc(sizeof(node_t));
 					new->next = NULL;
 					new->prev = NULL;
@@ -237,7 +240,7 @@ void free_block(arena_t *arena, const uint64_t address)
 	printf("Invalid address for free.\n");
 }
 
-void dealloc_arena(arena_t *arena)
+void dealloc_arena(arena_t* arena)
 {
 	if (!arena->block_list->size) {
 		free(arena->block_list);
@@ -277,7 +280,7 @@ void dealloc_arena(arena_t *arena)
 
 }
 
-void alloc_block_simple(arena_t *arena, const uint64_t address, const uint64_t size)
+void alloc_block_simple(arena_t* arena, const uint64_t address, const uint64_t size)
 {
 	if (!arena->block_list->size) {
 		node_t* new, *new2;		
@@ -353,7 +356,7 @@ void alloc_block_simple(arena_t *arena, const uint64_t address, const uint64_t s
 
 }
 
-void alloc_block_left(arena_t *arena, const uint64_t address, const uint64_t size, node_t* left)
+void alloc_block_left(const uint64_t address, const uint64_t size, node_t* left)
 {
 	((block_t*)left->data)->size += size;
 	((list_t*)((block_t*)left->data)->miniblock_list)->size++;
@@ -370,7 +373,7 @@ void alloc_block_left(arena_t *arena, const uint64_t address, const uint64_t siz
 	((list_t*)((block_t*)left->data)->miniblock_list)->tail = new;
 }
 
-void alloc_block_right(arena_t *arena, const uint64_t address, const uint64_t size, node_t* right)
+void alloc_block_right(const uint64_t address, const uint64_t size, node_t* right)
 {
 	((block_t*)right->data)->size += size;
 	((block_t*)right->data)->start_address = address;
@@ -388,7 +391,7 @@ void alloc_block_right(arena_t *arena, const uint64_t address, const uint64_t si
 	((list_t*)((block_t*)right->data)->miniblock_list)->head = new;
 }
 
-void alloc_block_left_right(arena_t *arena, const uint64_t address, const uint64_t size, node_t* left, node_t* right)
+void alloc_block_left_right(arena_t* arena, const uint64_t address, const uint64_t size, node_t* left, node_t* right)
 {
 	arena->block_list->size--;
 	((block_t*)left->data)->size += size;
@@ -424,7 +427,7 @@ void alloc_block_left_right(arena_t *arena, const uint64_t address, const uint64
 	
 }
 
-void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
+void alloc_block(arena_t* arena, const uint64_t address, const uint64_t size)
 {
 	if (address >= arena->arena_size) {
 		printf("The allocated address is outside the size of arena\n");
@@ -434,20 +437,20 @@ void alloc_block(arena_t *arena, const uint64_t address, const uint64_t size)
 		printf("The end address is past the size of the arena\n");
 		return;
 	}
-	if (dll_intersectie_block(arena, address, size)) {
+	if (block_inters(arena, address, size)) {
 		printf("This zone was already allocated.\n");
 		return;
 	}
-	node_t* left = merge_left(arena, address, size);
+	node_t* left = merge_left(arena, address);
 	node_t* right = merge_right(arena, left, address, size);
 	if (!left && !right) {
 		alloc_block_simple(arena, address, size);
 	}
 	if (left && !right) {
-		alloc_block_left(arena, address, size, left);
+		alloc_block_left(address, size, left);
 	}
 	if (!left && right) {
-		alloc_block_right(arena, address, size, right);
+		alloc_block_right(address, size, right);
 	}
 	if (left && right) {
 		alloc_block_left_right(arena, address, size, left, right);
@@ -464,9 +467,8 @@ int read_protected(node_t* miniblock)
 	return 0;
 }
 
-int mprotect_read(arena_t *arena, uint64_t address, uint64_t size)
+int mprotect_read(arena_t* arena, uint64_t address, uint64_t size)
 {
-	int is_protected = 0;
 	node_t* curr;
 	curr = arena->block_list->head;
 	for (uint64_t i = 0; i < arena->block_list->size; i++) {
@@ -490,8 +492,6 @@ int mprotect_read(arena_t *arena, uint64_t address, uint64_t size)
                     uint64_t aux;
                     aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
 					if (address + cut <= aux) {
-						uint64_t start_read;
-						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
 						if (read_protected(curr_mini)) {
 							printf("Invalid permissions for read.\n");
 							return 1;
@@ -500,13 +500,10 @@ int mprotect_read(arena_t *arena, uint64_t address, uint64_t size)
 					} else {
 						uint64_t alloc_size;
 						alloc_size = aux - address;
-						uint64_t start_read;
-						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
 						if (read_protected(curr_mini)) {
 							printf("Invalid permissions for read.\n");
 							return 1;
 						}
-						uint64_t next_count = alloc_size;
 						cut -= alloc_size ;
 						curr_mini = curr_mini->next;
 						while (cut > 0) {
@@ -539,7 +536,7 @@ int mprotect_read(arena_t *arena, uint64_t address, uint64_t size)
 	return 1;
 }
 
-void read(arena_t *arena, uint64_t address, uint64_t size)
+void read(arena_t* arena, uint64_t address, uint64_t size)
 {
 	if (!arena->block_list->size) {
 		printf("Invalid address for read.\n");
@@ -586,7 +583,6 @@ void read(arena_t *arena, uint64_t address, uint64_t size)
 						for (uint64_t count = 0; count < alloc_size; count++) {
 							printf("%c", ((int8_t*)((miniblock_t*)curr_mini->data)->rw_buffer)[count + start_read]);
 						}
-						uint64_t next_count = alloc_size;
 						cut -= alloc_size ;
 						curr_mini = curr_mini->next;
 						while (cut > 0) {
@@ -628,9 +624,8 @@ int write_protected(node_t* miniblock)
 	return 1;
 }
 
-int mprotect_write(arena_t *arena, uint64_t address, uint64_t size)
+int mprotect_write(arena_t* arena, uint64_t address, uint64_t size)
 {
-	int is_protected = 0;
 	node_t* curr;
 	curr = arena->block_list->head;
 	for (uint64_t i = 0; i < arena->block_list->size; i++) {
@@ -652,8 +647,6 @@ int mprotect_write(arena_t *arena, uint64_t address, uint64_t size)
 					uint64_t aux;
                     aux = ((miniblock_t*)curr_mini->data)->start_address + ((miniblock_t*)curr_mini->data)->size;
 					if (address + cut <= aux) {
-						uint64_t start_read;
-						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
 						if (write_protected(curr_mini)) {
 							printf("Invalid permissions for write.\n");
 							return 1;
@@ -662,13 +655,10 @@ int mprotect_write(arena_t *arena, uint64_t address, uint64_t size)
 					} else {
 						uint64_t alloc_size;
 						alloc_size = aux - address;
-						uint64_t start_read;
-						start_read = address - ((miniblock_t*)curr_mini->data)->start_address;
 						if (write_protected(curr_mini)) {
 							printf("Invalid permissions for write.\n");
 							return 1;
 						}
-						uint64_t next_count = alloc_size;
 						cut -= alloc_size ;
 						curr_mini = curr_mini->next;
 						while (cut > 0) {
@@ -699,7 +689,7 @@ int mprotect_write(arena_t *arena, uint64_t address, uint64_t size)
 	return 1;
 }
 
-void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *data)
+void write(arena_t* arena, const uint64_t address, const uint64_t size, int8_t *data)
 {
 	
 	if (!arena->block_list->size) {
@@ -723,7 +713,6 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 			} else {
 				cut = size;
 			}
-            uint64_t copy_cut = cut;
 			node_t* curr_mini;
 			curr_mini = ((list_t*)((block_t*)curr->data)->miniblock_list)->head;
 			for (uint64_t j = 0; j < ((list_t*)((block_t*)curr->data)->miniblock_list)->size; j++) {
@@ -781,7 +770,7 @@ void write(arena_t *arena, const uint64_t address, const uint64_t size, int8_t *
 	}
 }
 
-void pmap(const arena_t *arena)
+void pmap(const arena_t* arena)
 {
 	printf("Total memory: 0x%lX bytes\n", arena->arena_size);
 	uint64_t free_mem = 0;

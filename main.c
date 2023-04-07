@@ -4,13 +4,10 @@ int main() {
 	arena_t *arena;
 	while(1) {
 		char command[50];
-		// long nr, pos;
 		scanf("%s", command);
 		if(strcmp(command, "ALLOC_ARENA") == 0){
 			uint64_t size;
 			scanf("%lu", &size);
-			// arena = malloc(sizeof(arena_t));
-			// arena->arena_size = size;
 			arena = alloc_arena(size);
 		} else if(strcmp(command, "DEALLOC_ARENA") == 0){
 			dealloc_arena(arena);

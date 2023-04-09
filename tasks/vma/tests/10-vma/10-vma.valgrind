@@ -1,15 +1,15 @@
-==36252== Memcheck, a memory error detector
-==36252== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==36252== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==36252== Command: /home/nicky/Desktop/SDA/Virtual-Memory-Allocator/vma
-==36252== Parent PID: 36251
-==36252== 
-==36252== 
-==36252== HEAP SUMMARY:
-==36252==     in use at exit: 0 bytes in 0 blocks
-==36252==   total heap usage: 10 allocs, 10 frees, 8,377 bytes allocated
-==36252== 
-==36252== All heap blocks were freed -- no leaks are possible
-==36252== 
-==36252== For lists of detected and suppressed errors, rerun with: -s
-==36252== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==36866== Memcheck, a memory error detector
+==36866== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==36866== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==36866== Command: /home/nicky/Desktop/SDA/Virtual-Memory-Allocator/vma
+==36866== Parent PID: 36865
+==36866== 
+==36866== 
+==36866== HEAP SUMMARY:
+==36866==     in use at exit: 0 bytes in 0 blocks
+==36866==   total heap usage: 10 allocs, 10 frees, 8,377 bytes allocated
+==36866== 
+==36866== All heap blocks were freed -- no leaks are possible
+==36866== 
+==36866== For lists of detected and suppressed errors, rerun with: -s
+==36866== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

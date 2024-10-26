@@ -1,70 +1,67 @@
-# README check
 
-## Description
-This is the checker used to automatically grade the Virtual Memory Allocator. 
+# C Virtual Memory Allocator
 
-The name of the checker is `check`. It is written in `Python 3.6`.
+### Author: Nichita-Adrian Bunu, 323CA Facultatea de Automatica si Calculatoare UNSTPB 
+**Contact:** [nichita_adrian.bunu@stud.acs.upb.ro](mailto:nichita_adrian.bunu@stud.acs.upb.ro)
 
+---
 
-## What does it do?
-It will do the multiples steps.
+## Overview
 
-All steps marked with `[STOP]` are required. If one failed the checker will stop.
-All steps marked with `[OPTIONAL]` are optional and can be disabled from config.
+The implementation of a Load Balancer using Consistent Hashing. A Load Balancer is a component that directs traffic uniformly to a set of servers with limited processing power. Its mission is to ensure that all servers store and process a similar volume of data to maximize the efficiency of the entire system. It allows for dynamic memory management, where blocks of memory are allocated, deallocated, read, written, and protected within an "arena."
 
-1.  `deps`: Check if all dependencies are installed on local system in order to build/run/grade the homerwork.
+---
 
-2. `build`: Build homework.
-	2.1. [STOP] `Makefile`: Check if `Makefile` exists.
-	2.2. [STOP] `make`:  Run `make build` in order to build all binaries.
-	2.3. [OPT]`warnings`:  If warnings are detected, a penalty to final grade is applied.
+## Features and Functionality
 
-3. `run`: Run all tests for specified tasks (all or one).
-	3.1 [STOP] `run`: Run task for current test. Continue iff the program exited successfully.
-	3.2 [STOP] `check`: Check if the solution is correction. Continue iff the program found solution for task/at least one subtask.
-	3.3 [OPT ] `valgrind`: Check for memory leaks and errors. If valgrind found problems, the test grade is 0.
+- **Memory Arena Management**:
+  - Allocate and deallocate an arena for managing memory.
+- **Block Allocation and Freeing**:
+  - Allocate blocks within the arena and manage them using a linked list structure.
+  - Merge blocks when possible to optimize memory usage.
+- **Memory Read and Write**:
+  - Support for reading and writing data to specific addresses within allocated blocks.
+  - Memory permissions for read, write, and execute operations.
+- **Memory Protection**:
+  - Allows setting protection permissions on allocated memory regions.
+  - Verifies permissions before allowing read/write access.
+- **Memory Map Display**:
+  - Shows the memory layout of the arena, including allocated blocks and their permissions.
 
-	`Note`: This stage is using an explained `legend`:
-	1. `UPS`: Ups, program crashed
-		e.g null pointer dereference, negative or to big array/matrix indices
-	2. `TLE`: Time Limit Exceed
-		e.g. infinit loop or too slow
-	3. `MLE`: Memory Limit Exceed
-		e.g. too much allocated memory (in total or for some segments)
-	3. `MEM_UPS`: Memory leaks or errors
-		e.g. invalid memory access, unfreed dynamic-allocated arrays
-	4. `WA`: Wrong Answer (wrong or partial output)
-		e.g. output is missing or has other value
-	5. `OK`: Everything is OK.
+---
 
-4. `style`: Run coding style checker to automatically report most common mistakes.
+## Code Structure
 
-5. `README`: Basic check for reminding students to put a readme file before final submission.
-  	`Note`: If the `README` is missing, a penalty to final grade is applied.
+### `main.c`
 
-6. `clean`: Remove all generated files by running the `make clean` command.
+Implements the primary functionality and interface for interacting with the VMA:
+- **Command Handling**: Processes commands like `ALLOC_ARENA`, `ALLOC_BLOCK`, `FREE_BLOCK`, `READ`, `WRITE`, `PMAP`, and `MPROTECT`.
+- **Interactive Mode**: Accepts commands from the user, performs actions on the arena, and provides feedback.
 
-7. `grade`: Print final grade (which is always non-negative).
+### `vma.c`
 
+Contains the core memory management functions:
+- **Memory Allocation**: Manages the arena allocation (`alloc_arena`), block allocation (`alloc_block`), and deallocation (`dealloc_arena`).
+- **Memory Access**: Implements functions for reading, writing, and protecting memory blocks.
+- **Utility Functions**: Functions like `pmap` to print the memory layout, and permission parsing functions for setting access rights.
 
-## Installation
+---
 
-The `install.sh` script can be used to install all dependencies for `check`.
+## How to Run
 
-Note: Please inspect  the script to see which are the requirements.
+1. **Build the project**:
+   ```bash
+   make build
+   ```
 
-```console
-sudo ./install.sh
-```
+2. **Run the executable**:
+   ```bash
+   make run_vma
+   ```
 
-## Usage
+3. **Clean up the compiled files**:
+   ```bash
+   make clean
+   ```
 
-- run entire homework
-
-```console
-./check
-```
-
-## Coding style checker
-
-Please read `cs/README.md`.
+---

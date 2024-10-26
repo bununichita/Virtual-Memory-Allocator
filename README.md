@@ -8,7 +8,10 @@
 
 ## Overview
 
-The implementation of a Load Balancer using Consistent Hashing. A Load Balancer is a component that directs traffic uniformly to a set of servers with limited processing power. Its mission is to ensure that all servers store and process a similar volume of data to maximize the efficiency of the entire system. It allows for dynamic memory management, where blocks of memory are allocated, deallocated, read, written, and protected within an "arena."
+Simulation of a kernel buffer, using an approach that leverages linked lists.
+A virtual memory allocator (VMA) allows for dynamic memory management, where blocks of memory are allocated, deallocated, read, written, and protected within an "arena." The allocator supports memory protection levels and visual representation of allocated and free memory blocks.
+
+Functions: ALLOC_ARENA, DEALLOC_ARENA, ALLOC_BLOCK, FREE_BLOCK, READ, WRITE, PMAP, MPROTECT
 
 ---
 
